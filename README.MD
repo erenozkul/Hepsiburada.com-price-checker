@@ -103,9 +103,9 @@ $hb->removeData("specificProducts","json",$specificProducts);
 		"price": 385.57,
 		"discount": "40",
 		"campaigns": [
-			"Se&#231;ili Padişah yataklarda sepette %30 indirim + kargo bedava!",
-			"Se&#231;ili yataklarda kargo bedava!",
-			"&#214;zdemirler Halı mağazasının se&#231;ili &#252;r&#252;nlerinde kargo bedava!"
+			"Seçili Padişah yataklarda sepette %30 indirim + kargo bedava!",
+			"Seçili yataklarda kargo bedava!",
+			"Özdemirler Halı mağazasının seçili ürünlerinde kargo bedava!"
 		],
 		"special-discount": "30",
 		"special-price": 269.9
