@@ -1,8 +1,7 @@
 Hakkında
 ====================
 
-
-hepsiburada.com'da ürünlerin fiyat takibini yapabilmek amacıyla oluşturulmuştur. diğediğiniz bir dizine(records) JSON formatta veri kaydı yapar.
+Merhaba, bu proje hepsiburada.com'da ürünlerin fiyat takibini yapabilmek amacıyla oluşturulmuştur. diğediğiniz bir dizine(records) JSON formatta veri kaydı yapar.
 
 Not: Kayıt yapılacak dizine(records) okuma/yazma izni vermeniz gerekmetedir. Aksi takdirde veri yazma-okuma problemi yaşayabilirsiniz.
 
@@ -93,7 +92,7 @@ $hb->removeData("specificProducts","json",$specificProducts);
 
 <h4>Veri Kayıt Örneği</h4>
 * "special-discount" ve "special-price" alanları ürün için "Sepette %?? indirim" kampanyası olması durumunda hesaplanı ve yazdırılır.
-```json
+```javascript
 {
 	"padisah-meri-full-ortopedik-luks-yatak-90-x-190-cm-p-HBV00000808O6": {
 		"url": "http://www.hepsiburada.com/padisah-meri-full-ortopedik-luks-yatak-90-x-190-cm-p-HBV00000808O6",
