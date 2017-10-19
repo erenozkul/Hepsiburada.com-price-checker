@@ -7,7 +7,7 @@ $list = array(
 $hb = new HBPrice($list);
 
 
-$hb->appendProduct("profilo-cmg140dtr-premium-9-a-9-kg-1400-devir-camasir-makinesi-p-MTPROFCGM1400DTR");
-//echo $hb->syncData("json",true);
+$hb->appendProduct("padisah-meri-full-ortopedik-luks-yatak-90-x-190-cm-p-HBV00000808O6");
+echo $hb->syncData("json",true);
 //echo $hb->readData("productList","json");
 //echo $hb->removeData("productList","json");

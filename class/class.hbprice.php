@@ -7,7 +7,8 @@
 
 
 include "simple_html_dom.php";
-error_reporting(0);
+
+//error_reporting(0);
 
 class HBPrice
 {
@@ -53,14 +54,25 @@ class HBPrice
                     }
                     if (!isset($html["error"])) {
                         if (!str_get_html($html)->find("img[src=http://images.hepsiburada.net/assets/sfstatic/Content/images/404.jpg]")) {
+
                             $data = array();
                             $data["url"] = $url;
                             $data["date"] = date("d.m.Y H:i:s");
                             $data["name"] = trim(str_get_html($html)->find("h1[id=product-name]", 0)->innertext);
-                            $data["oldPrice"] = trim(trim(str_get_html($html)->find("del[class=product-old-price]", 0)->plaintext, "TL"));
+                            $data["oldPrice"] = floatval(str_replace(",", ".", trim(trim(str_get_html($html)->find("del[class=product-old-price]", 0)->plaintext, "TL"))));
                             $data["price"] = explode(" ", trim(str_get_html($html)->find("span[id=offering-price]", 0)->plaintext));
-                            $data["price"] = $data["price"][0] . $data["price"][1];
+                            $data["price"] = floatval(str_replace(",", ".", $data["price"][0] . $data["price"][1]));
                             $data["discount"] = trim(str_get_html($html)->find("span[class=discount-amount]", 0)->children(0)->plaintext);
+                            $scList = str_get_html($html)->find("div#productCampaignList ul li");
+                            foreach ($scList as $sc) {
+                                $data["campaigns"][] = trim($sc->plaintext);
+                                $sdcs = strpos(strtolower(trim($sc->plaintext)), "sepette %");
+                                if ($sdcs !== false) {
+                                    $sd = trim(substr(trim($sc->plaintext), ($sdcs + 9), 2));
+                                    $data["special-discount"] = $sd;
+                                    $data["special-price"] = round($data["price"] * (100 - $sd) / 100, 2);
+                                }
+                            }
                             $this->elog(json_encode($data), date("dmYHis"), $this->seo($product));
                             $this->return[$product] = $data;
                         } else {
@@ -190,7 +202,8 @@ class HBPrice
     }
 
     private function seo($string)
-    {   $s = $string;
+    {
+        $s = $string;
         $tr = array('ş', 'Ş', 'ı', 'I', 'İ', 'ğ', 'Ğ', 'ü', 'Ü', 'ö', 'Ö', 'Ç', 'ç', '(', ')', '/', ':', ',');
         $eng = array('s', 's', 'i', 'i', 'i', 'g', 'g', 'u', 'u', 'o', 'o', 'c', 'c', '', '', '-', '-', '');
         $s = str_replace($tr, $eng, $s);
