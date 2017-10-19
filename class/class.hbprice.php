@@ -7,7 +7,6 @@
 
 
 include "simple_html_dom.php";
-
 //error_reporting(0);
 
 class HBPrice
@@ -26,6 +25,7 @@ class HBPrice
             $this->productList = $productList;
         }
     }
+
 
     public function appendProduct($url)
     {

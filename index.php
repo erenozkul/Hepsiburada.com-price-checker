@@ -6,8 +6,7 @@ $list = array(
 );
 $hb = new HBPrice($list);
 
-
 $hb->appendProduct("padisah-meri-full-ortopedik-luks-yatak-90-x-190-cm-p-HBV00000808O6");
-echo $hb->syncData("json",true);
-//echo $hb->readData("productList","json");
+//echo $hb->syncData("json",true);
+echo $hb->readData("productList","json");
 //echo $hb->removeData("productList","json");
