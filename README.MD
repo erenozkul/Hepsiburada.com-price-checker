@@ -92,6 +92,7 @@ $hb->removeData("specificProducts","json",$specificProducts);
 
 <h4>Veri Kayıt Örneği</h4>
 * "special-discount" ve "special-price" alanları ürün için "Sepette %?? indirim" kampanyası olması durumunda hesaplanı ve yazdırılır.
+
 ```php
 {
 	"padisah-meri-full-ortopedik-luks-yatak-90-x-190-cm-p-HBV00000808O6": {
