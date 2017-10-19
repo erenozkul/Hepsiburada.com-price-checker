@@ -9,5 +9,5 @@ $hb = new HBPrice($list);
 
 $hb->appendProduct("profilo-cmg140dtr-premium-9-a-9-kg-1400-devir-camasir-makinesi-p-MTPROFCGM1400DTR");
 //echo $hb->syncData("json",true);
-echo $hb->readData("productList","json");
+//echo $hb->readData("productList","json");
 //echo $hb->removeData("productList","json");
