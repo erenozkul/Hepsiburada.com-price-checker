@@ -130,7 +130,7 @@ class HBPrice
 
     public function removeData($data = "all" | "productList" | "specificProducts", $type = "json" | "array" | "xml", $specificProducts = null)
     {
-        $products = "";
+
         $this->return = array();
         if ($data == "all") {
             $products = array_filter(glob($this->logdir . "/*"), 'is_dir');
@@ -227,7 +227,7 @@ class HBPrice
         fclose($file);
     }
 
-    private function array_to_xml($array, &$xml_user_info)
+    private function array_to_xml($array, SimpleXMLElement &$xml_user_info)
     {
         foreach ($array as $key => $value) {
             if (is_array($value)) {
@@ -244,7 +244,7 @@ class HBPrice
         }
     }
 
-    private function ereturn($data, $type = "json" | "array" | "xml")
+    private function ereturn($data, $type = "json")
     {
         if ($type == "json" or empty($type)) {
             return json_encode($data);
@@ -254,6 +254,8 @@ class HBPrice
             $xml = new SimpleXMLElement('<?xml version="1.0"?><root></root>');
             $this->array_to_xml($data, $xml);
             return $xml->asXML();
+        }else{
+            return $data;
         }
     }
 }
