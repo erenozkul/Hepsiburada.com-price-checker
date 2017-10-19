@@ -6,7 +6,7 @@ hepsiburada.com'da ürünlerin fiyat takibini yapabilmek amacıyla oluşturulmu�
 
 Not: Kayıt yapılacak dizine(records) okuma/yazma izni vermeniz gerekmetedir. Aksi takdirde veri yazma-okuma problemi yaşayabilirsiniz.
 
-Ekrana 3 formatta veri döndürebilirsiniz.
+3 formatta veri döndürebilirsiniz.
 * JSON
 * Array
 * XML
@@ -91,3 +91,24 @@ $hb->removeData("specificProducts","json",$specificProducts);
 ```
 
 
+<h4>Veri Kayıt Örneği</h4>
+* "special-discount" ve "special-price" alanları ürün için "Sepette %?? indirim" kampanyası olması durumunda hesaplanı ve yazdırılır.
+```json
+{
+	"padisah-meri-full-ortopedik-luks-yatak-90-x-190-cm-p-HBV00000808O6": {
+		"url": "http://www.hepsiburada.com/padisah-meri-full-ortopedik-luks-yatak-90-x-190-cm-p-HBV00000808O6",
+		"date": "20.10.2017 00:20:47",
+		"name": "Padişah Meri Full Ortopedik Lüks Yatak 90 x 190 cm",
+		"oldPrice": 642.9,
+		"price": 385.57,
+		"discount": "40",
+		"campaigns": [
+			"Se&#231;ili Padişah yataklarda sepette %30 indirim + kargo bedava!",
+			"Se&#231;ili yataklarda kargo bedava!",
+			"&#214;zdemirler Halı mağazasının se&#231;ili &#252;r&#252;nlerinde kargo bedava!"
+		],
+		"special-discount": "30",
+		"special-price": 269.9
+	}
+}
+```
